@@ -4,6 +4,18 @@ This is a simple java tool designed by Mukul Agarwal to make running
 AP-Computer-Science A examples easier. All code is licensed under the GNU
 General Public License Version 3.
 
+## Installation
+
+To install onto a *nix system, run the command:
+
+```bash
+$ bash <(curl -s  https://raw.githubusercontent.com/agarmu/AP-Tool/main/install.sh)
+
+...
+Creating 'ap' file
+...
+```
+
 ## Building
 
 To build AP-Tool, you need a Java Compiler and runtime. (Tested on OpenJDK 14)
