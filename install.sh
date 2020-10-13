@@ -3,7 +3,6 @@
 
 UTILS_DIR="$HOME/.utils"
 JARS_DIR="$UTILS_DIR/jars"
-VERSION="v0.1.0-alpha"
 
  write_to_profile() (
     echo $SHELL | grep bash >> /dev/null \
@@ -50,7 +49,9 @@ create_links() (
 )
 
 download() (
-    FETCH_PATH="https://github.com/agarmu/AP-Tool/releases/download/$VERSION/ap.jar"
+    LATEST_RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/agarmu/AP-Tool/releases/latest)
+    VERSION=$(echo $LATEST_RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
+    JAR_FETCH_PATH="https://github.com/agarmu/AP-Tool/releases/download/$VERSION/ap.jar"
     curl -fsL $FETCH_PATH --output $JARS_DIR/ap.jar
 )
 
