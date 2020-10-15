@@ -1,12 +1,16 @@
-package aptool;
+package aptool.common;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
 
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Interact {
     File dir;
-    Interact(){
+    public Interact(){
         this.dir = new File(System.getProperty("user.dir"));
     }
     public void create(Identifier identifier) {
@@ -35,13 +39,25 @@ public class Interact {
                 System.err.println("Error creating source java file. Aborting...");
                 System.exit(2);
             };
-            
+            SimpleDateFormat date = new SimpleDateFormat("d-MMM-YYYY");
+
             FileWriter srcJava = new FileWriter(javaFile);
+            srcJava.append("/*\n");
+            srcJava.append(" * Programmer: Mukul Agarwal\n");
+            srcJava.append(" * Date: ");
+            srcJava.append(date.format(new Date()));
+            srcJava.append("\n");
+            srcJava.append(" * Purpose: \n");
+            srcJava.append("*/");
+            srcJava.append("\n");
+            srcJava.append("\n");
+            srcJava.append("\n");
             srcJava.append("public class " + name + "{\n");
             srcJava.append("\tpublic static void main(String[] args){\n");
             srcJava.append("\t\tSystem.out.println(\"Hello World!\");\n");
             srcJava.append("\t}\n");
             srcJava.append("}\n");
+            
             srcJava.flush();
             srcJava.close();
         } catch (IOException i) {

@@ -1,4 +1,4 @@
-package aptool;
+package aptool.common;
 
 import java.util.Scanner;
 public class Input {

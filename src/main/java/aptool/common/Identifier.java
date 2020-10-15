@@ -1,4 +1,4 @@
-package aptool;
+package aptool.common;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -9,11 +9,13 @@ public class Identifier {
     public int unit;
     public int subunit;
     public int video;
+    
     Identifier(int unit, int subunit, int video){
         this.unit = unit;
         this.subunit = subunit;
         this.video = video;
     }
+
     public static Identifier parse(String match) throws NumberFormatException {
         final String regex = "^(\\d+)\\.(\\d)V(\\d)$";
         Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
@@ -30,6 +32,7 @@ public class Identifier {
             }
             throw new NumberFormatException("Your input tuple " + match + " was not recognizable.");
     }
+
     public String format() {
         return this.unit + "." + this.subunit + "V" + this.video;
     }

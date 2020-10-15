@@ -1,4 +1,4 @@
-package aptool;
+package aptool.common;
 
 import java.io.FileNotFoundException;
 import java.util.Scanner; 
