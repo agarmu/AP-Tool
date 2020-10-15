@@ -1,4 +1,6 @@
-public class Main {
+package aptool;
+
+public class App {
     public static void main(String[] args) {
         execute(args);
     }

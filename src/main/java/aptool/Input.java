@@ -1,3 +1,5 @@
+package aptool;
+
 import java.util.Scanner;
 public class Input {
     public static String input(String prompt) {
